@@ -11,6 +11,7 @@
 
     <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto"
           RowSpacing="20">
+        
         <StackLayout Grid.Row="0"
                      Margin="20,20,20,0"
                      Orientation="Horizontal">
@@ -23,8 +24,42 @@
                        HorizontalOptions="Center" />
             </Frame>
 
+            <ImageButton Source="search.png"
+                         HeightRequest="30"
+                         WidthRequest="30"
+                         HorizontalOptions="End" />
+
         </StackLayout>
-        
+
+        <StackLayout Grid.Row="1"
+            Orientation="Vertical">
+            
+            <Label x:Name="CityLabel"
+                   Text="City"
+                   HorizontalOptions="Center" 
+                   FontSize="50"/>
+            <Label x:Name="WeatherLabel"
+                   Text="Weather Description"
+                   HorizontalOptions="Center" 
+                   FontSize="30"/>
+            
+        </StackLayout>
+
+        <Image Grid.Row="2"
+               x:Name="WeatherImage"
+               VerticalOptions="Start"
+               HorizontalOptions="Center"
+               HeightRequest="200"
+               WidthRequest="200"
+               Source="sun.gif"/>
+
+        <Grid Grid.Row="3">
+            
+            
+            
+        </Grid> 
+
+
     </Grid>
     
 </ContentPage>
