@@ -51,9 +51,17 @@
                HorizontalOptions="Center"
                HeightRequest="200"
                WidthRequest="200"
-               Source="sun.gif"/>
+               Source="sun.gif"
+               />
 
-        <Grid Grid.Row="3"
+        <Label x:Name="TemperatureLabel"
+               Grid.Row="3"
+               HorizontalOptions="Center"
+               Text="80"
+               FontSize="60"/>
+
+
+        <Grid Grid.Row="4"
               RowDefinitions="Auto,Auto"
               ColumnDefinitions=".33*,.33*,.33*"
               Margin="20">
@@ -62,23 +70,34 @@
                    Grid.Column="0"
                    HorizontalOptions="Center"
                    HeightRequest="25" 
-                   Source="rain.gif"/>
-            <Label x:Name="HumidityLabel"
-                   Grid.Row="1"
-                   Grid.Column="0"
-                   HorizontalOptions="Center"
-                   Text="60%" />
+                   Source="wind.png"/>
             <Label x:Name="WindLabel"
                      Grid.Row="1"
-                     Grid.Column="1"
+                     Grid.Column="0"
                      HorizontalOptions="Center"
                      Text="10mph" />
-            <Label x:Name="PressureLabel"
-                   Grid.Row="1"
-                   Grid.Column="2"
-                   HorizontalOptions="Center"
-                   Text="1000hPa" />
 
+            <Image Grid.Row="0"
+                   Grid.Column="1"
+                   HorizontalOptions="Center"
+                   HeightRequest="25" 
+                   Source="humidity.png"/>
+            <Label x:Name="HumidityLabel"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    Text="60%" />
+
+            <Image Grid.Row="0"
+                    Grid.Column="2"
+                    HorizontalOptions="Center"
+                    HeightRequest="25" 
+                    Source="barometer.png"/>
+            <Label x:Name="PressureLabel"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    HorizontalOptions="Center"
+                    Text="1013hPa"/>
 
         </Grid> 
 
