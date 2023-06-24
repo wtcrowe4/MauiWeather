@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiWeather.WeatherPage"
+             
              Title="WeatherPage">
     <!--<VerticalStackLayout>
         <Label 
@@ -49,8 +50,8 @@
                x:Name="WeatherImage"
                VerticalOptions="Start"
                HorizontalOptions="Center"
-               HeightRequest="200"
-               WidthRequest="200"
+               HeightRequest="250"
+               WidthRequest="250"
                Source="sun.gif"
                />
 
@@ -58,7 +59,7 @@
                Grid.Row="3"
                HorizontalOptions="Center"
                Text="80"
-               FontSize="60"/>
+               FontSize="75"/>
 
 
         <Grid Grid.Row="4"
@@ -69,34 +70,37 @@
             <Image Grid.Row="0"
                    Grid.Column="0"
                    HorizontalOptions="Center"
-                   HeightRequest="25" 
+                   HeightRequest="45" 
                    Source="wind.png"/>
             <Label x:Name="WindLabel"
                      Grid.Row="1"
                      Grid.Column="0"
                      HorizontalOptions="Center"
+                     FontSize="20"
                      Text="10mph" />
 
             <Image Grid.Row="0"
                    Grid.Column="1"
                    HorizontalOptions="Center"
-                   HeightRequest="25" 
+                   HeightRequest="45" 
                    Source="humidity.png"/>
             <Label x:Name="HumidityLabel"
                     Grid.Row="1"
                     Grid.Column="1"
                     HorizontalOptions="Center"
+                    FontSize="20"
                     Text="60%" />
 
             <Image Grid.Row="0"
                     Grid.Column="2"
                     HorizontalOptions="Center"
-                    HeightRequest="25" 
-                    Source="barometer.png"/>
+                    HeightRequest="45" 
+                    Source="barometer-.png"/>
             <Label x:Name="PressureLabel"
                     Grid.Row="1"
                     Grid.Column="2"
                     HorizontalOptions="Center"
+                    FontSize="20"
                     Text="1013hPa"/>
 
         </Grid> 
