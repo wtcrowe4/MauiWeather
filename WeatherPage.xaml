@@ -37,11 +37,9 @@
             Orientation="Vertical">
             
             <Label x:Name="CityLabel"
-                   Text="City"
                    HorizontalOptions="Center" 
                    FontSize="50"/>
             <Label x:Name="WeatherLabel"
-                   Text="Weather Description"
                    HorizontalOptions="Center" 
                    FontSize="30"/>
             
