@@ -20,7 +20,7 @@
                    Padding="10"
                    HasShadow="True"
                    BorderColor="LightGray"
-                   BackgroundColor="LightBlue">
+                   BackgroundColor="#33CCCC">
                 <Label Text="MAUI Weather"
                        HorizontalOptions="Center" />
             </Frame>
@@ -28,6 +28,7 @@
             <ImageButton Source="search.png"
                          HeightRequest="30"
                          WidthRequest="30"
+                         Margin="275,0,0,0"
                          HorizontalOptions="End" />
 
         </StackLayout>
@@ -53,6 +54,7 @@
                HeightRequest="250"
                WidthRequest="250"
                Source="sun.gif"
+               IsAnimationPlaying="True"
                />
 
         <Label x:Name="TemperatureLabel"
@@ -103,7 +105,46 @@
                     FontSize="20"
                     Text="1013hPa"/>
 
-        </Grid> 
+        </Grid>
+
+        <CollectionView Grid.Row="5"
+                        HeightRequest="100"
+                        x:Name="ForecastCollectionView">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal"
+                                   ItemSpacing="20"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="Auto,Auto,Auto"
+                          ColumnDefinitions="Auto,Auto">
+                        <Label Text="85"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               HorizontalOptions="Center"
+                               FontSize="20"/>
+                        <Image Source="sun.gif"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               HorizontalOptions="Center"
+                               HeightRequest="50"
+                               WidthRequest="50"
+                               IsAnimationPlaying="False"/>
+                        <Label Text="3pm"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               HorizontalOptions="Center"
+                               FontSize="20"/>
+                        
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+            
+        </CollectionView>
+                        
 
 
     </Grid>
