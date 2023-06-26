@@ -14,9 +14,13 @@ public partial class WeatherPage : ContentPage
 	protected async override void OnAppearing()
 	{
 		base.OnAppearing();
-		var result = await APIService.GetWeatherByLatLong(47.6829, -122.1209);
-		CityLabel.Text = result.name;
-		WeatherLabel.Text = result.weather[0].main;
-		Debug.WriteLine(result);
+		var response = await APIService.GetWeatherByLatLong(35.6127, -77.3663);
+		CityLabel.Text = response.name;
+		WeatherLabel.Text = response.weather[0].main;
+		TemperatureLabel.Text = response.main.temperature.ToString() + " F";
+		WindLabel.Text = response.wind.speed.ToString() + " mph";
+		HumidityLabel.Text = response.main.humidity.ToString() + " %";
+		PressureLabel.Text = response.main.pressure.ToString() + " hPa";
+		Debug.WriteLine(response);
 	}
 }

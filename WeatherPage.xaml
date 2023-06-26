@@ -58,7 +58,6 @@
         <Label x:Name="TemperatureLabel"
                Grid.Row="3"
                HorizontalOptions="Center"
-               Text="80"
                FontSize="75"/>
 
 
@@ -76,8 +75,7 @@
                      Grid.Row="1"
                      Grid.Column="0"
                      HorizontalOptions="Center"
-                     FontSize="20"
-                     Text="10mph" />
+                     FontSize="20" />
 
             <Image Grid.Row="0"
                    Grid.Column="1"
@@ -88,8 +86,7 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     HorizontalOptions="Center"
-                    FontSize="20"
-                    Text="60%" />
+                    FontSize="20" />
 
             <Image Grid.Row="0"
                     Grid.Column="2"
@@ -100,8 +97,7 @@
                     Grid.Row="1"
                     Grid.Column="2"
                     HorizontalOptions="Center"
-                    FontSize="20"
-                    Text="1013hPa"/>
+                    FontSize="20" />
 
         </Grid>
 
