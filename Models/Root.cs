@@ -66,6 +66,7 @@ namespace MauiWeather.Models
     public class Wind
     {
         public double speed { get; set; }
+        public double roundedSpeed => Math.Round(speed);
         public int deg { get; set; }
     }
 
