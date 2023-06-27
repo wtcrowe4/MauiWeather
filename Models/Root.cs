@@ -53,6 +53,8 @@ namespace MauiWeather.Models
         public string country { get; set; }
         public int sunrise { get; set; }
         public int sunset { get; set; }
+        public DateTime sunriseTime => DateTimeOffset.FromUnixTimeSeconds(sunrise).DateTime;
+        public DateTime sunsetTime => DateTimeOffset.FromUnixTimeSeconds(sunset).DateTime;
     }
 
     public class Weather
@@ -61,6 +63,7 @@ namespace MauiWeather.Models
         public string main { get; set; }
         public string description { get; set; }
         public string icon { get; set; }
+        public string fullIconUrl => $"https://openweathermap.org/img/w/{icon}@x3.png";
     }
 
     public class Wind

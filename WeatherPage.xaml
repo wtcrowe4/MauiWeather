@@ -50,10 +50,7 @@
                VerticalOptions="Start"
                HorizontalOptions="Center"
                HeightRequest="250"
-               WidthRequest="250"
-               Source="sun.gif"
-               IsAnimationPlaying="True"
-               />
+               WidthRequest="250" />
 
         <Label x:Name="TemperatureLabel"
                Grid.Row="3"
