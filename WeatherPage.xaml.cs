@@ -15,21 +15,24 @@ public partial class WeatherPage : ContentPage
 	protected async override void OnAppearing()
 	{
 		base.OnAppearing();
+		
 		//API call
-		var response = await APIService.GetWeather("greenville");
+		//var response = await APIService.GetWeather("greenville");
+		var current = await APIService.GetWeatherByLatLong(35.6127, -77.3663);
 		
 		//Getting forecast data for collection view
+		//var forecast = await APIService.GetWeatherForecast(35.6127, -77.3663);
 
 
 		//Assigning main values
-		CityLabel.Text = response.name;
-		WeatherLabel.Text = response.weather[0].main;
-		WeatherImage.Source = response.weather[0].fullIconUrl;
-		TemperatureLabel.Text = response.main.temperature.ToString() + " F";
-		WindLabel.Text = response.wind.roundedSpeed.ToString() + " mph";
-		HumidityLabel.Text = response.main.humidity.ToString() + " %";
-		PressureLabel.Text = response.main.pressure.ToString() + " hPa";
-		Debug.WriteLine(response);
+		CityLabel.Text = current.name;
+		WeatherLabel.Text = current.weather[0].main;
+		WeatherImage.Source = current.weather[0].fullIconUrl;
+		TemperatureLabel.Text = current.main.temperature.ToString() + " F";
+		WindLabel.Text = current.wind.roundedSpeed.ToString() + " mph";
+		HumidityLabel.Text = current.main.humidity.ToString() + " %";
+		PressureLabel.Text = current.main.pressure.ToString() + " hPa";
+		Debug.WriteLine(current);
 	}
 }
 
