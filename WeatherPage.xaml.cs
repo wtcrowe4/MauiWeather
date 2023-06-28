@@ -5,6 +5,7 @@ namespace MauiWeather;
 
 public partial class WeatherPage : ContentPage
 {
+	public List<Models.List> WeatherList;
 	public WeatherPage()
 	{
 		InitializeComponent();
@@ -14,7 +15,13 @@ public partial class WeatherPage : ContentPage
 	protected async override void OnAppearing()
 	{
 		base.OnAppearing();
+		//API call
 		var response = await APIService.GetWeather("greenville");
+		
+		//Getting forecast data for collection view
+
+
+		//Assigning main values
 		CityLabel.Text = response.name;
 		WeatherLabel.Text = response.weather[0].main;
 		WeatherImage.Source = response.weather[0].fullIconUrl;
