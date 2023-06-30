@@ -44,8 +44,8 @@ public partial class WeatherPage : ContentPage
         var current = await APIService.GetWeatherByLatLong(lat, lon);
 		
 		//Getting forecast data for collection view
-		//var forecast = await APIService.GetWeatherForecast(35.6127, -77.3663);
-
+		var forecast = await APIService.GetWeatherForecast(35.6127, -77.3663);
+        Debug.WriteLine(forecast);
 
 		//Assigning main values
 		CityLabel.Text = current.name;
@@ -57,6 +57,8 @@ public partial class WeatherPage : ContentPage
 		PressureLabel.Text = current.main.pressure.ToString() + " hPa";
 	}
 	
+
+    //Getting device location
     private CancellationTokenSource _cancelTokenSource;
     private bool _isCheckingLocation;
 
@@ -74,7 +76,11 @@ public partial class WeatherPage : ContentPage
 
             if (location != null)
                 Debug.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-				return location;
+
+            //CheckMock();
+
+
+            return location;
 		}
         // Catch one of the following exceptions:
         //   FeatureNotSupportedException
@@ -96,6 +102,17 @@ public partial class WeatherPage : ContentPage
     {
         if (_isCheckingLocation && _cancelTokenSource != null && _cancelTokenSource.IsCancellationRequested == false)
             _cancelTokenSource.Cancel();
+    }
+    //Check if location is from mock provider
+    public async Task CheckMock()
+    {
+        GeolocationRequest request = new GeolocationRequest(GeolocationAccuracy.Medium);
+        Location location = await Geolocation.Default.GetLocationAsync(request);
+
+        if (location != null && location.IsFromMockProvider)
+        {
+            Debug.WriteLine("This location is from a mock provider.");
+        }
     }
 }
 
