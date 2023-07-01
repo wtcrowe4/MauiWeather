@@ -98,6 +98,8 @@ namespace MauiWeather.Models
         public Rain rain { get; set; }
         public Sys sys { get; set; }
         public string dt_txt { get; set; }
+        public string time => DateTimeOffset.FromUnixTimeSeconds(dt).DateTime.ToString("h:mm tt");
+        public string date => DateTimeOffset.FromUnixTimeSeconds(dt).DateTime.ToString("M/d");  
     }
 
     public class City

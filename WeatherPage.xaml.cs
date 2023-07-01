@@ -46,7 +46,7 @@ public partial class WeatherPage : ContentPage
         var current = await APIService.GetWeatherByLatLong(lat, lon);
 		
 		//Getting forecast data for collection view
-		var forecast = await APIService.GetWeatherForecast(35.6127, -77.3663);
+		var forecast = await APIService.GetWeatherForecast(lat, lon);
         NearForecastList = forecast.list;
         //for (var i = 0; i < 3; i++)
         //{
@@ -58,6 +58,8 @@ public partial class WeatherPage : ContentPage
         for (var i = 0; i < NearForecastList.Count; i++)
         {
             NearForecastList[i].main.temperatureF = (int)Math.Round(NearForecastList[i].main.temp* 9 / 5 - 459.67);
+            Debug.WriteLine(NearForecastList[i].main.temperatureF);
+            Debug.WriteLine(NearForecastList[i].time);
         }
                 
 
@@ -67,7 +69,7 @@ public partial class WeatherPage : ContentPage
 		CityLabel.Text = current.name;
 		WeatherLabel.Text = current.weather[0].main;
 		WeatherImage.Source = current.weather[0].fullIconUrl;
-		TemperatureLabel.Text = current.main.temperature.ToString() + " F";
+		TemperatureLabel.Text = current.main.temperature.ToString() + " °F";
 		WindLabel.Text = current.wind.roundedSpeed.ToString() + " mph";
 		HumidityLabel.Text = current.main.humidity.ToString() + " %";
 		PressureLabel.Text = current.main.pressure.ToString() + " hPa";
