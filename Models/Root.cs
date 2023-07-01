@@ -23,6 +23,7 @@ namespace MauiWeather.Models
     {
         public double temp { get; set; }
         public double temperature => Math.Round(temp);
+        public int temperatureF { get; set; }
         public double feels_like { get; set; }
         public double temp_min { get; set; }
         public double temp_max { get; set; }
@@ -88,7 +89,7 @@ namespace MauiWeather.Models
     public class List
     {
         public int dt { get; set; }
-        public FMain fmain { get; set; }
+        public Main main { get; set; }
         public List<Weather> weather { get; set; }
         public Clouds clouds { get; set; }
         public Wind wind { get; set; }

@@ -113,7 +113,7 @@
                 <DataTemplate>
                     <Grid RowDefinitions="Auto,Auto,Auto"
                           ColumnDefinitions="Auto,Auto" >
-                        <Label Text="{Binding fmain.temperature}"  
+                        <Label Text="{Binding main.temperatureF}"  
                                Grid.Row="0"
                                Grid.Column="0"
                                HorizontalOptions="Center"

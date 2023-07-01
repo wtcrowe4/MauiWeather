@@ -47,13 +47,19 @@ public partial class WeatherPage : ContentPage
 		
 		//Getting forecast data for collection view
 		var forecast = await APIService.GetWeatherForecast(35.6127, -77.3663);
-        for (var i = 0; i < 3; i++)
+        NearForecastList = forecast.list;
+        //for (var i = 0; i < 3; i++)
+        //{
+        //    NearForecastList.Add(forecast.list[i]);
+        //    Debug.WriteLine(forecast.list[i].main.temperature);
+        //    Debug.WriteLine(forecast.list[i].dt_txt);
+        //}
+        //Convert to F
+        for (var i = 0; i < NearForecastList.Count; i++)
         {
-            NearForecastList.Add(forecast.list[i]);
-            Debug.WriteLine(forecast.list[i].fmain.temperature);
+            NearForecastList[i].main.temperatureF = (int)Math.Round(NearForecastList[i].main.temp* 9 / 5 - 459.67);
         }
-        Debug.WriteLine(forecast);
-        
+                
 
         //Assigning forecast values
         ForecastCollectionView.ItemsSource = NearForecastList;
