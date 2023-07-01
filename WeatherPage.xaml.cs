@@ -1,14 +1,16 @@
 using MauiWeather.Services;
 using System.Diagnostics;
+using MauiWeather.Models;
 
 namespace MauiWeather;
 
 public partial class WeatherPage : ContentPage
 {
-	public List<Models.List> WeatherList;
+	public List<Models.List> NearForecastList;
 	public WeatherPage()
 	{
 		InitializeComponent();
+        NearForecastList = new List<Models.List>();
 		OnAppearing();
 	}
 
@@ -38,15 +40,23 @@ public partial class WeatherPage : ContentPage
 		double lon = currentLocation.Longitude;
 
 
-        //API call
+        //API calls
         //Greenville 35.6127, -77.3663
         //var response = await APIService.GetWeather("greenville");
         var current = await APIService.GetWeatherByLatLong(lat, lon);
 		
 		//Getting forecast data for collection view
 		var forecast = await APIService.GetWeatherForecast(35.6127, -77.3663);
+        for (var i = 0; i < 3; i++)
+        {
+            NearForecastList.Add(forecast.list[i]);
+            Debug.WriteLine(forecast.list[i].fmain.temperature);
+        }
         Debug.WriteLine(forecast);
+        
 
+        //Assigning forecast values
+        ForecastCollectionView.ItemsSource = NearForecastList;
 		//Assigning main values
 		CityLabel.Text = current.name;
 		WeatherLabel.Text = current.weather[0].main;

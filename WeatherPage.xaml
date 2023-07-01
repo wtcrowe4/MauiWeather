@@ -11,7 +11,7 @@
     </VerticalStackLayout>-->
 
     <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto"
-          RowSpacing="20">
+          RowSpacing="10">
         
         <StackLayout Grid.Row="0"
                      Margin="20,20,20,0"
@@ -38,10 +38,10 @@
             
             <Label x:Name="CityLabel"
                    HorizontalOptions="Center" 
-                   FontSize="50"/>
+                   FontSize="30"/>
             <Label x:Name="WeatherLabel"
                    HorizontalOptions="Center" 
-                   FontSize="30"/>
+                   FontSize="20"/>
             
         </StackLayout>
 
@@ -49,13 +49,13 @@
                x:Name="WeatherImage"
                VerticalOptions="Start"
                HorizontalOptions="Center"
-               HeightRequest="250"
-               WidthRequest="250" />
+               HeightRequest="200"
+               WidthRequest="300" />
 
         <Label x:Name="TemperatureLabel"
                Grid.Row="3"
                HorizontalOptions="Center"
-               FontSize="75"/>
+               FontSize="50"/>
 
 
         <Grid Grid.Row="4"
@@ -66,68 +66,70 @@
             <Image Grid.Row="0"
                    Grid.Column="0"
                    HorizontalOptions="Center"
-                   HeightRequest="45" 
+                   HeightRequest="40" 
                    Source="wind.png"/>
             <Label x:Name="WindLabel"
                      Grid.Row="1"
                      Grid.Column="0"
                      HorizontalOptions="Center"
-                     FontSize="20" />
+                     FontSize="15" />
 
             <Image Grid.Row="0"
                    Grid.Column="1"
                    HorizontalOptions="Center"
-                   HeightRequest="45" 
+                   HeightRequest="40" 
                    Source="humidity.png"/>
             <Label x:Name="HumidityLabel"
                     Grid.Row="1"
                     Grid.Column="1"
                     HorizontalOptions="Center"
-                    FontSize="20" />
+                    FontSize="15" />
 
             <Image Grid.Row="0"
                     Grid.Column="2"
                     HorizontalOptions="Center"
-                    HeightRequest="45" 
+                    HeightRequest="40" 
                     Source="barometer-.png"/>
             <Label x:Name="PressureLabel"
                     Grid.Row="1"
                     Grid.Column="2"
                     HorizontalOptions="Center"
-                    FontSize="20" />
+                    FontSize="15" />
 
         </Grid>
 
         <CollectionView Grid.Row="5"
-                        HeightRequest="100"
+                        HeightRequest="50"
+                        Margin="0,100,0,0"
                         x:Name="ForecastCollectionView">
 
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Horizontal"
-                                   ItemSpacing="20"/>
+                                   ItemSpacing="10"
+                                    />
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid RowDefinitions="Auto,Auto,Auto"
-                          ColumnDefinitions="Auto,Auto">
-                        <Label Text="85"
+                          ColumnDefinitions="Auto,Auto" >
+                        <Label Text="{Binding fmain.temperature}"  
                                Grid.Row="0"
                                Grid.Column="0"
                                HorizontalOptions="Center"
-                               FontSize="20"/>
-                        <Image Source="sun.gif"
+                               FontSize="10"/>
+                        <Image Source="{Binding weather[0].fullIconUrl}"
                                Grid.Row="1"
                                Grid.Column="0"
                                HorizontalOptions="Center"
-                               HeightRequest="50"
-                               WidthRequest="50"
+                               HeightRequest="40"
+                               WidthRequest="40"
                                IsAnimationPlaying="False"/>
-                        <Label Text="3pm"
+                        <Label Text="{Binding dt_txt}"
                                Grid.Row="2"
                                Grid.Column="0"
                                HorizontalOptions="Center"
-                               FontSize="20"/>
+                               FontSize="10"/>
                         
                     </Grid>
                 </DataTemplate>

@@ -122,6 +122,7 @@ namespace MauiWeather.Models
         public int grnd_level { get; set; }
         public int humidity { get; set; }
         public double temp_kf { get; set; }
+        public int temperature => (int)Math.Round(temp * 9 / 5 - 459.67);
     }
 
 
