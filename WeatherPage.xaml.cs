@@ -17,28 +17,11 @@ public partial class WeatherPage : ContentPage
 	protected async override void OnAppearing()
 	{
 		base.OnAppearing();
-
-		//Getting permission to use device location
-		//var status = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
-		//if (status != PermissionStatus.Granted)
-		//{
-		//	await Shell.Current.DisplayAlert("Location Denied", "Please allow access to your location", "OK");
-		//	status = await Permissions.RequestAsync<Permissions.LocationWhenInUse>();
-		//	var location = await Geolocation.GetLastKnownLocationAsync();
-		//	lat = location.Latitude;
-		//	lon = location.Longitude;
-			
-		//} else
-		//{
-			//var location = await Geolocation.GetLastKnownLocationAsync();
-			//double lat = location.Latitude;
-			//double lon = location.Longitude;
-		//}
-
+        
+        //Getting current location
 		Location currentLocation = await GetCurrentLocation();
 		double lat = currentLocation.Latitude;
 		double lon = currentLocation.Longitude;
-
 
         //API calls
         //Greenville 35.6127, -77.3663
@@ -48,24 +31,17 @@ public partial class WeatherPage : ContentPage
 		//Getting forecast data for collection view
 		var forecast = await APIService.GetWeatherForecast(lat, lon);
         NearForecastList = forecast.list;
-        //for (var i = 0; i < 3; i++)
-        //{
-        //    NearForecastList.Add(forecast.list[i]);
-        //    Debug.WriteLine(forecast.list[i].main.temperature);
-        //    Debug.WriteLine(forecast.list[i].dt_txt);
-        //}
+        
         //Convert to F
         for (var i = 0; i < NearForecastList.Count; i++)
         {
             NearForecastList[i].main.temperatureF = (int)Math.Round(NearForecastList[i].main.temp* 9 / 5 - 459.67);
-            Debug.WriteLine(NearForecastList[i].main.temperatureF);
-            Debug.WriteLine(NearForecastList[i].time);
         }
-                
-
+        
         //Assigning forecast values
         ForecastCollectionView.ItemsSource = NearForecastList;
-		//Assigning main values
+		
+        //Assigning main values
 		CityLabel.Text = current.name;
 		WeatherLabel.Text = current.weather[0].main;
 		WeatherImage.Source = current.weather[0].fullIconUrl;
@@ -75,7 +51,6 @@ public partial class WeatherPage : ContentPage
 		PressureLabel.Text = current.main.pressure.ToString() + " hPa";
 	}
 	
-
     //Getting device location
     private CancellationTokenSource _cancelTokenSource;
     private bool _isCheckingLocation;

@@ -1,160 +1,171 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiWeather.WeatherPage"
-             
-             Title="WeatherPage">
+<ContentPage
+    x:Class="MauiWeather.WeatherPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="WeatherPage">
     <!--<VerticalStackLayout>
-        <Label 
+        <Label
             Text="MAUI Weather"
             HorizontalOptions="Center" />
     </VerticalStackLayout>-->
 
-    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
-          RowSpacing="10">
-        
-        <StackLayout Grid.Row="0"
-                     Margin="20,20,20,0"
-                     
-                     Orientation="Horizontal">
-            <Frame CornerRadius="35"
-                   Padding="10"
-                   HasShadow="True"
-                   BorderColor="LightGray"
-                   BackgroundColor="#33CCCC">
-                <Label Text="MAUI Weather"
-                       HorizontalOptions="Center" />
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
+
+        <StackLayout
+            Grid.Row="0"
+            Margin="20,20,20,0"
+            Orientation="Horizontal">
+            <Frame
+                Padding="10"
+                Background="DarkGray"
+                CornerRadius="35"
+                HasShadow="True">
+                <Label HorizontalOptions="Center" Text="MAUI Weather" />
             </Frame>
 
-            <ImageButton Source="search.png"
-                         HeightRequest="30"
-                         WidthRequest="30"
-                         Margin="275,0,0,0"
-                         HorizontalOptions="End" />
+            <ImageButton
+                Margin="275,0,0,0"
+                HeightRequest="30"
+                HorizontalOptions="End"
+                Source="search.png"
+                WidthRequest="30" />
 
         </StackLayout>
 
-        <StackLayout Grid.Row="1"
-            Orientation="Vertical">
-            
-            <Label x:Name="CityLabel"
-                   HorizontalOptions="Center" 
-                   FontSize="40"
-                   Padding="0, 20"/>
-            <Label x:Name="WeatherLabel"
-                   HorizontalOptions="Center" 
-                   FontSize="30"/>
-            
+        <StackLayout Grid.Row="1" Orientation="Vertical">
+
+            <Label
+                x:Name="CityLabel"
+                Padding="0,20"
+                FontSize="40"
+                HorizontalOptions="Center" />
+            <Label
+                x:Name="WeatherLabel"
+                FontSize="30"
+                HorizontalOptions="Center" />
+
         </StackLayout>
 
-        <Image Grid.Row="2"
-               x:Name="WeatherImage"
-               VerticalOptions="Start"
-               HorizontalOptions="Center"
-               HeightRequest="250"
-               WidthRequest="250" />
+        <Image
+            x:Name="WeatherImage"
+            Grid.Row="2"
+            HeightRequest="250"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            WidthRequest="250" />
 
-        <Label x:Name="TemperatureLabel"
-               Grid.Row="3"
-               HorizontalOptions="Center"
-               FontSize="80"/>
+        <Label
+            x:Name="TemperatureLabel"
+            Grid.Row="3"
+            FontSize="80"
+            HorizontalOptions="Center" />
 
 
-        <Grid Grid.Row="4"
-              RowDefinitions="Auto,Auto"
-              ColumnDefinitions=".33*,.33*,.33*"
-              Margin="30,20"
-              >
+        <Grid
+            Grid.Row="4"
+            Margin="30,20"
+            ColumnDefinitions=".33*,.33*,.33*"
+            RowDefinitions="Auto,Auto">
 
-            <Image Grid.Row="0"
-                   Grid.Column="0"
-                   HorizontalOptions="Center"
-                   HeightRequest="40" 
-                   Source="wind.png"/>
-            <Label x:Name="WindLabel"
-                     Grid.Row="1"
-                     Grid.Column="0"
-                     HorizontalOptions="Center"
-                     FontSize="15" />
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                HeightRequest="40"
+                HorizontalOptions="Center"
+                Source="wind.png" />
+            <Label
+                x:Name="WindLabel"
+                Grid.Row="1"
+                Grid.Column="0"
+                FontSize="15"
+                HorizontalOptions="Center" />
 
-            <Image Grid.Row="0"
-                   Grid.Column="1"
-                   HorizontalOptions="Center"
-                   HeightRequest="40" 
-                   Source="humidity.png"/>
-            <Label x:Name="HumidityLabel"
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    HorizontalOptions="Center"
-                    FontSize="15" />
+            <Image
+                Grid.Row="0"
+                Grid.Column="1"
+                HeightRequest="40"
+                HorizontalOptions="Center"
+                Source="humidity.png" />
+            <Label
+                x:Name="HumidityLabel"
+                Grid.Row="1"
+                Grid.Column="1"
+                FontSize="15"
+                HorizontalOptions="Center" />
 
-            <Image Grid.Row="0"
-                    Grid.Column="2"
-                    HorizontalOptions="Center"
-                    HeightRequest="40" 
-                    Source="barometer-.png"/>
-            <Label x:Name="PressureLabel"
-                    Grid.Row="1"
-                    Grid.Column="2"
-                    HorizontalOptions="Center"
-                    FontSize="15" />
+            <Image
+                Grid.Row="0"
+                Grid.Column="2"
+                HeightRequest="40"
+                HorizontalOptions="Center"
+                Source="barometer-.png" />
+            <Label
+                x:Name="PressureLabel"
+                Grid.Row="1"
+                Grid.Column="2"
+                FontSize="15"
+                HorizontalOptions="Center" />
 
         </Grid>
 
-        <CollectionView Grid.Row="5"
-                        HeightRequest="240"
-                        
-                        x:Name="ForecastCollectionView">
+        <CollectionView
+            x:Name="ForecastCollectionView"
+            Grid.Row="5"
+            HeightRequest="240">
 
             <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Horizontal"
-                                   ItemSpacing="15"
-                                    />
+                <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal" />
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid RowDefinitions="Auto,Auto,Auto,Auto"
-                          ColumnDefinitions="Auto,Auto" 
-                          Margin="20,30,20,10" >
-                        <Label Text="{Binding main.temperatureF}"  
-                               Grid.Row="0"
-                               Grid.Column="0"
-                               HorizontalOptions="Center"
-                               FontSize="25"/>
-                        <Image Source="{Binding weather[0].fullIconUrl}"
-                               Grid.Row="1"
-                               Grid.Column="0"
-                               HorizontalOptions="Center"
-                               HeightRequest="60"
-                               WidthRequest="60"
-                               IsAnimationPlaying="False"/>
-                        <Label Text="{Binding date}"
-                                 Grid.Row="2"
-                                 Grid.Column="0"
-                                 HorizontalOptions="Center"
-                                 FontSize="20"/>
-                        <Label Text="{Binding time}"
-                               Grid.Row="3"
-                               Grid.Column="0"
-                               HorizontalOptions="Center"
-                               FontSize="15"/>
-                        
+                    <Grid
+                        Margin="20,30,20,10"
+                        ColumnDefinitions="Auto,Auto"
+                        RowDefinitions="Auto,Auto,Auto,Auto">
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontSize="25"
+                            HorizontalOptions="Center"
+                            Text="{Binding main.temperatureF}" />
+                        <Image
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            HeightRequest="60"
+                            HorizontalOptions="Center"
+                            IsAnimationPlaying="False"
+                            Source="{Binding weather[0].fullIconUrl}"
+                            WidthRequest="60" />
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            Text="{Binding date}" />
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            FontSize="15"
+                            HorizontalOptions="Center"
+                            Text="{Binding time}" />
+
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-            
-            
+
+
         </CollectionView>
 
-        <Label Grid.Row="6"
-               Text="ThomasCrowe"
-               HorizontalOptions="Center"
-               
-               FontSize="10"/>
+        <Label
+            Grid.Row="6"
+            FontSize="10"
+            HorizontalOptions="Center"
+            Text="ThomasCrowe" />
 
 
 
     </Grid>
-    
+
 </ContentPage>
