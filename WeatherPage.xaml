@@ -29,6 +29,7 @@
 
             <ImageButton
                 Margin="275,0,0,0"
+                Clicked="SearchBtn_Clicked"
                 HeightRequest="30"
                 HorizontalOptions="End"
                 Source="search.png"

@@ -25,7 +25,7 @@ public partial class WeatherPage : ContentPage
 
         //API calls
         //Greenville 35.6127, -77.3663
-        //var response = await APIService.GetWeather("greenville");
+        //var response = await APIService.GetWeatherByCity("greenville");
         var current = await APIService.GetWeatherByLatLong(lat, lon);
 		
 		//Getting forecast data for collection view
@@ -108,9 +108,40 @@ public partial class WeatherPage : ContentPage
         }
     }
 
+    //My Weather button to reload data
     private void MyLocation_Tapped(object sender, EventArgs e)
     {
         OnAppearing();
+    }
+
+    //Search button to search for a city
+    private async void SearchBtn_Clicked(object sender, EventArgs e)
+    {
+        var search = await DisplayPromptAsync(title: "Search by City", message: "Currently only using city name", placeholder: "Search", accept: "Search", cancel: "Cancel");
+        if (search != null) 
+        {
+            NearForecastList.Clear();
+            ForecastCollectionView.ItemsSource = null;
+            Debug.WriteLine(search);
+            var current = await APIService.GetWeatherByCity(search);
+            var forecast = await APIService.GetWeatherForecast(current.coord.lat, current.coord.lon);
+            NearForecastList = forecast.list;
+            //Convert to F
+            for (var i = 0; i < NearForecastList.Count; i++)
+            {
+                NearForecastList[i].main.temperatureF = (int)Math.Round(NearForecastList[i].main.temp * 9 / 5 - 459.67);
+            }
+            ForecastCollectionView.ItemsSource = NearForecastList;
+            //Assigning main values
+            CityLabel.Text = current.name;
+            WeatherLabel.Text = current.weather[0].main;
+            WeatherImage.Source = current.weather[0].fullIconUrl;
+            TemperatureLabel.Text = current.main.temperature.ToString() + " °F";
+            WindLabel.Text = current.wind.roundedSpeed.ToString() + " mph";
+            HumidityLabel.Text = current.main.humidity.ToString() + " %";
+            PressureLabel.Text = current.main.pressure.ToString() + " hPa";
+
+        }
     }
 }
 
