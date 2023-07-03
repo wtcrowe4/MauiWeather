@@ -107,5 +107,10 @@ public partial class WeatherPage : ContentPage
             Debug.WriteLine("This location is from a mock provider.");
         }
     }
+
+    private void MyLocation_Tapped(object sender, EventArgs e)
+    {
+        OnAppearing();
+    }
 }
 

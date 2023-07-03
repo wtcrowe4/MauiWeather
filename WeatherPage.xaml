@@ -4,11 +4,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="WeatherPage">
-    <!--<VerticalStackLayout>
-        <Label
-            Text="MAUI Weather"
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>-->
+
+
+
 
     <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
 
@@ -21,8 +19,13 @@
                 Background="DarkGray"
                 CornerRadius="35"
                 HasShadow="True">
-                <Label HorizontalOptions="Center" Text="MAUI Weather" />
+                <Label HorizontalOptions="Center" Text="My Weather" />
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="MyLocation" Tapped="MyLocation_Tapped" />
+                </Frame.GestureRecognizers>
             </Frame>
+
+
 
             <ImageButton
                 Margin="275,0,0,0"
