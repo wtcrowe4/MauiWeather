@@ -3,10 +3,8 @@
     x:Class="MauiWeather.WeatherPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="WeatherPage">
-
-
-
+    Title="WeatherPage"
+    BackgroundColor="LightGray">
 
     <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
 
@@ -15,6 +13,7 @@
             Margin="20,20,20,0"
             Orientation="Horizontal">
             <Frame
+                Margin="10,0,0,0"
                 Padding="10"
                 Background="DarkGray"
                 CornerRadius="35"
@@ -28,7 +27,7 @@
 
 
             <ImageButton
-                Margin="275,0,0,0"
+                Margin="285,0,0,0"
                 Clicked="SearchBtn_Clicked"
                 HeightRequest="30"
                 HorizontalOptions="End"
