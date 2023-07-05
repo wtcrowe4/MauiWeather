@@ -14,8 +14,9 @@
             Orientation="Horizontal">
             <Frame
                 Margin="10,0,0,0"
-                Padding="10"
+                Padding="20,10,20,10"
                 Background="DarkGray"
+                BorderColor="Black"
                 CornerRadius="35"
                 HasShadow="True">
                 <Label HorizontalOptions="Center" Text="My Weather" />
@@ -27,7 +28,7 @@
 
 
             <ImageButton
-                Margin="285,0,0,0"
+                Margin="270,0,0,0"
                 Clicked="SearchBtn_Clicked"
                 HeightRequest="30"
                 HorizontalOptions="End"

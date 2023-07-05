@@ -15,19 +15,28 @@
         </LinearGradientBrush>
     </ContentPage.Background>
     <ContentPage.Content>
-        <Grid>
+        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
             <Label
-                Grid.Row="0"
+                Margin="0,-40,0,40"
+                Padding="10"
+                FontAttributes="Bold"
+                FontFamily="sans-serif-light"
+                FontSize="60"
                 HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
                 Text="Welcome to MAUI Weather!"
                 TextColor="White"
                 VerticalOptions="Center" />
+            <Image Source="thermometer.png" />
             <Button
-                Grid.Row="1"
+                Margin="0,40,0,0"
+                Padding="30,20,30,20"
                 Clicked="WelcomeButton_Clicked"
+                FontSize="20"
                 HorizontalOptions="Center"
                 Text="Get Weather"
+                TextColor="Black"
                 VerticalOptions="Center" />
-        </Grid>
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
