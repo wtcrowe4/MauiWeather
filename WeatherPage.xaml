@@ -3,8 +3,13 @@
     x:Class="MauiWeather.WeatherPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="WeatherPage"
-    BackgroundColor="LightGray">
+    Title="WeatherPage">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Offset="0" Color="#4F6367" />
+            <GradientStop Offset="1" Color="#1C2E4A" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
 
     <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
 
@@ -42,12 +47,15 @@
             <Label
                 x:Name="CityLabel"
                 Padding="0,20"
+                FontAttributes="Bold"
                 FontSize="40"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                TextColor="White" />
             <Label
                 x:Name="WeatherLabel"
                 FontSize="30"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                TextColor="White" />
 
         </StackLayout>
 
@@ -63,7 +71,8 @@
             x:Name="TemperatureLabel"
             Grid.Row="3"
             FontSize="80"
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            TextColor="White" />
 
 
         <Grid
@@ -83,7 +92,8 @@
                 Grid.Row="1"
                 Grid.Column="0"
                 FontSize="15"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                TextColor="White" />
 
             <Image
                 Grid.Row="0"
@@ -96,7 +106,8 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 FontSize="15"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                TextColor="White" />
 
             <Image
                 Grid.Row="0"
@@ -109,7 +120,8 @@
                 Grid.Row="1"
                 Grid.Column="2"
                 FontSize="15"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                TextColor="White" />
 
         </Grid>
 
@@ -133,7 +145,8 @@
                             Grid.Column="0"
                             FontSize="25"
                             HorizontalOptions="Center"
-                            Text="{Binding main.temperatureF}" />
+                            Text="{Binding main.temperatureF}"
+                            TextColor="White" />
                         <Image
                             Grid.Row="1"
                             Grid.Column="0"
@@ -147,7 +160,8 @@
                             Grid.Column="0"
                             FontSize="20"
                             HorizontalOptions="Center"
-                            Text="{Binding date}" />
+                            Text="{Binding date}"
+                            TextColor="White" />
                         <Label
                             Grid.Row="3"
                             Grid.Column="0"
@@ -166,7 +180,8 @@
             Grid.Row="6"
             FontSize="10"
             HorizontalOptions="Center"
-            Text="Thomas Crowe" />
+            Text="Thomas Crowe"
+            TextColor="White" />
 
 
 
