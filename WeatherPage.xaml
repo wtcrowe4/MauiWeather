@@ -62,6 +62,7 @@
         <Image
             x:Name="WeatherImage"
             Grid.Row="2"
+            BackgroundColor="Gray"
             HeightRequest="250"
             HorizontalOptions="Center"
             VerticalOptions="Start"
@@ -84,6 +85,7 @@
             <Image
                 Grid.Row="0"
                 Grid.Column="0"
+                BackgroundColor="AliceBlue"
                 HeightRequest="40"
                 HorizontalOptions="Center"
                 Source="wind.png" />
@@ -98,6 +100,7 @@
             <Image
                 Grid.Row="0"
                 Grid.Column="1"
+                BackgroundColor="AliceBlue"
                 HeightRequest="40"
                 HorizontalOptions="Center"
                 Source="humidity.png" />
@@ -112,6 +115,7 @@
             <Image
                 Grid.Row="0"
                 Grid.Column="2"
+                BackgroundColor="AliceBlue"
                 HeightRequest="40"
                 HorizontalOptions="Center"
                 Source="barometer-.png" />
@@ -167,7 +171,8 @@
                             Grid.Column="0"
                             FontSize="15"
                             HorizontalOptions="Center"
-                            Text="{Binding time}" />
+                            Text="{Binding time}"
+                            TextColor="White" />
 
                     </Grid>
                 </DataTemplate>
