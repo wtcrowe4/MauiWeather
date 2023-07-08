@@ -20,7 +20,7 @@
             <Frame
                 Margin="10,0,0,0"
                 Padding="20,10,20,10"
-                Background="DarkGray"
+                Background="Gray"
                 BorderColor="Black"
                 CornerRadius="35"
                 HasShadow="True">
@@ -85,7 +85,7 @@
             <Image
                 Grid.Row="0"
                 Grid.Column="0"
-                BackgroundColor="AliceBlue"
+                BackgroundColor="Gray"
                 HeightRequest="40"
                 HorizontalOptions="Center"
                 Source="wind.png" />
@@ -100,7 +100,7 @@
             <Image
                 Grid.Row="0"
                 Grid.Column="1"
-                BackgroundColor="AliceBlue"
+                BackgroundColor="Gray"
                 HeightRequest="40"
                 HorizontalOptions="Center"
                 Source="humidity.png" />
@@ -115,10 +115,12 @@
             <Image
                 Grid.Row="0"
                 Grid.Column="2"
-                BackgroundColor="AliceBlue"
+                Aspect="AspectFill"
+                BackgroundColor="Gray"
                 HeightRequest="40"
                 HorizontalOptions="Center"
-                Source="barometer-.png" />
+                Source="barometer-.png"
+                WidthRequest="40" />
             <Label
                 x:Name="PressureLabel"
                 Grid.Row="1"
