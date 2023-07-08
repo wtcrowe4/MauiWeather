@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>tizen10;net7.0-android;net7.0-ios;net7.0-maccatalyst;net7.0-tizen7.0</TargetFrameworks>
+		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst;</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
-		<platform-runtime>tizen.7.0</platform-runtime>
+		<!--<platform-runtime>tizen.7.0</platform-runtime>-->
+		<!--tizen10:net7.0-tizen7.0-->
 		<MauiFastDev>true</MauiFastDev>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!--<TargetFrameworks>$(TargetFrameworks);net7.0-tizen7.0</TargetFrameworks>--> 
