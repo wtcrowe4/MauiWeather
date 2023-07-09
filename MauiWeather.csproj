@@ -52,6 +52,11 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Resources\Images\barometer-white.png.png" />
+	  <None Remove="Resources\Images\barometer_white.png" />
+	</ItemGroup>
+
 	
 
 	<ItemGroup>

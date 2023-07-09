@@ -27,7 +27,7 @@
                 Text="Welcome to MAUI Weather!"
                 TextColor="White"
                 VerticalOptions="Center" />
-            <Image Source="thermometer.png" />
+            <Image Source="thermometer_white.png" />
             <Button
                 Margin="0,40,0,0"
                 Padding="30,20,30,20"

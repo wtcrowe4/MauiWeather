@@ -62,7 +62,6 @@
         <Image
             x:Name="WeatherImage"
             Grid.Row="2"
-            BackgroundColor="Gray"
             HeightRequest="250"
             HorizontalOptions="Center"
             VerticalOptions="Start"
@@ -85,10 +84,10 @@
             <Image
                 Grid.Row="0"
                 Grid.Column="0"
-                BackgroundColor="Gray"
+                Margin="0,0,0,5"
                 HeightRequest="40"
                 HorizontalOptions="Center"
-                Source="wind.png" />
+                Source="wind_white.png" />
             <Label
                 x:Name="WindLabel"
                 Grid.Row="1"
@@ -100,10 +99,12 @@
             <Image
                 Grid.Row="0"
                 Grid.Column="1"
-                BackgroundColor="Gray"
+                Margin="0,0,0,5"
                 HeightRequest="40"
                 HorizontalOptions="Center"
-                Source="humidity.png" />
+                Source="humidity_white.png" />
+
+
             <Label
                 x:Name="HumidityLabel"
                 Grid.Row="1"
@@ -115,11 +116,11 @@
             <Image
                 Grid.Row="0"
                 Grid.Column="2"
+                Margin="0,0,0,5"
                 Aspect="AspectFill"
-                BackgroundColor="Gray"
                 HeightRequest="40"
                 HorizontalOptions="Center"
-                Source="barometer-.png"
+                Source="barometer_white.png"
                 WidthRequest="40" />
             <Label
                 x:Name="PressureLabel"
