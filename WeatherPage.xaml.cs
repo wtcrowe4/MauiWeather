@@ -17,6 +17,7 @@ public partial class WeatherPage : ContentPage
 	protected async override void OnAppearing()
 	{
 		base.OnAppearing();
+        ClearData();
         
         //Getting current location
 		Location currentLocation = await GetCurrentLocation();
@@ -49,6 +50,7 @@ public partial class WeatherPage : ContentPage
 		WindLabel.Text = current.wind.roundedSpeed.ToString() + " mph";
 		HumidityLabel.Text = current.main.humidity.ToString() + " %";
 		PressureLabel.Text = current.main.pressure.ToString() + " hPa";
+        IsBusy(false);
 	}
 	
     //Getting device location
@@ -111,6 +113,8 @@ public partial class WeatherPage : ContentPage
     //My Weather button to reload data
     private void MyLocation_Tapped(object sender, EventArgs e)
     {
+        NearForecastList.Clear();
+
         OnAppearing();
     }
 
@@ -120,8 +124,7 @@ public partial class WeatherPage : ContentPage
         var search = await DisplayPromptAsync(title: "Search by City", message: "Currently only using city name", placeholder: "Search", accept: "Search", cancel: "Cancel");
         if (search != null) 
         {
-            NearForecastList.Clear();
-            ForecastCollectionView.ItemsSource = null;
+            ClearData();
             Debug.WriteLine(search);
             var current = await APIService.GetWeatherByCity(search);
             var forecast = await APIService.GetWeatherForecast(current.coord.lat, current.coord.lon);
@@ -140,8 +143,40 @@ public partial class WeatherPage : ContentPage
             WindLabel.Text = current.wind.roundedSpeed.ToString() + " mph";
             HumidityLabel.Text = current.main.humidity.ToString() + " %";
             PressureLabel.Text = current.main.pressure.ToString() + " hPa";
+            IsBusy(false);
 
         }
+    }
+
+    //Activity indicator
+    public new void IsBusy(bool busy)
+    {
+        if (busy)
+        {
+            ActivityIndicator.IsVisible = true;
+            ActivityIndicator.IsRunning = true;
+            
+        }
+        else
+        {
+            ActivityIndicator.IsVisible = false;
+            ActivityIndicator.IsRunning = false;
+            
+        }
+    }
+
+    public void ClearData() 
+    { 
+        NearForecastList.Clear();
+        ForecastCollectionView.ItemsSource = null;
+        CityLabel.Text = "";
+        WeatherLabel.Text = "";
+        WeatherImage.Source = "";
+        TemperatureLabel.Text = "";
+        WindLabel.Text = "";
+        HumidityLabel.Text = "";
+        PressureLabel.Text = "";
+        IsBusy(true);
     }
 }
 
