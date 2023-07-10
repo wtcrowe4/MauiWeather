@@ -71,6 +71,7 @@
         <ActivityIndicator
             x:Name="ActivityIndicator"
             Grid.Row="2"
+            HeightRequest="250"
             IsRunning="{Binding IsBusy}"
             IsVisible="{Binding IsBusy}"
             Color="White" />

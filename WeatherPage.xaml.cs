@@ -155,12 +155,19 @@ public partial class WeatherPage : ContentPage
         {
             ActivityIndicator.IsVisible = true;
             ActivityIndicator.IsRunning = true;
+            WindImage.IsVisible = false;
+            HumidityImage.IsVisible = false;
+            PressureImage.IsVisible = false;
             
         }
         else
         {
             ActivityIndicator.IsVisible = false;
             ActivityIndicator.IsRunning = false;
+            WindImage.IsVisible = true;
+            HumidityImage.IsVisible = true;
+            PressureImage.IsVisible = true;
+
             
         }
     }
