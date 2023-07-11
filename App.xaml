@@ -6,10 +6,15 @@
     xmlns:local="clr-namespace:MauiWeather">
     <Application.Resources>
         <ResourceDictionary>
+            <!--  Trying to get rid of white background loading screen  -->
+            <Style TargetType="WebView">
+                <Setter Property="BackgroundColor" Value="DarkGray" />
+            </Style>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
+
 </Application>

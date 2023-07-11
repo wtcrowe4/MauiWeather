@@ -148,6 +148,16 @@ public partial class WeatherPage : ContentPage
         }
     }
 
+    //Radar button to open radar page
+    private async void RadarBtn_Clicked(object sender, EventArgs e)
+    {
+        
+        await Navigation.PushAsync(new RadarPage());
+        Application.Current.MainPage = new RadarPage();
+
+
+    }   
+
     //Activity indicator
     public new void IsBusy(bool busy)
     {

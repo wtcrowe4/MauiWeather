@@ -17,7 +17,7 @@
     <ContentPage.Content>
         <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
             <Label
-                Margin="0,-40,0,40"
+                Margin="0,-80,0,80"
                 Padding="10"
                 FontAttributes="Bold"
                 FontFamily="sans-serif-light"
@@ -27,9 +27,31 @@
                 Text="Welcome to MAUI Weather!"
                 TextColor="White"
                 VerticalOptions="Center" />
-            <Image Source="thermometer_white.png" />
+
+            <!--<Label.Effects>
+                    <DropShadow>
+                    <DropShadowEffect Color="Black" Direction="315" Opacity="0.5" ShadowDepth="5" />
+            </Label>-->
+            <!--<TextBlock
+                Margin="0,-80,0,80"
+                Padding="10"
+                FontAttributes="Bold"
+                FontFamily="sans-serif-light"
+                FontSize="60"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="Welcome to MAUI Weather!"
+                TextColor="White"
+                VerticalOptions="Center" >
+                <TextBlock.Effects>
+                    <DropShadowEffect Color="Black" Direction="315" Opacity="0.5" ShadowDepth="5" />
+                </TextBlock.Effects>
+            </TextBlock>-->
+
+            <Image HeightRequest="300" Source="thermometer_white.png" />
+
             <Button
-                Margin="0,40,0,0"
+                Margin="0,120,0,0"
                 Padding="30,20,30,20"
                 Clicked="WelcomeButton_Clicked"
                 FontSize="20"

@@ -12,7 +12,7 @@ public partial class App : Application
 		}
 		else
 		{
-			MainPage = new WeatherPage();
+			MainPage = new WelcomePage();
 		}
 	}
 }
