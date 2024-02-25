@@ -14,7 +14,7 @@ namespace MauiWeather.Services
     public static class APIService
     {
         //Get current weather by city
-        public static async Task<Root> GetWeather(string city)
+        public static async Task<Root> GetWeatherByCity(string city)
         {
             
             var client = new HttpClient();
@@ -24,7 +24,7 @@ namespace MauiWeather.Services
                 RequestUri = new Uri($"https://open-weather13.p.rapidapi.com/city/{city}"),
                 Headers =
                     {
-                        { "X-RapidAPI-Key", "" },
+                        { "X-RapidAPI-Key", "d16089aecbmshc1fc9e2ac0fc8b8p1f8009jsn0432cdff9b0b" },  //d825f6ccc4msh5c52f4fbeced2a9p13985fjsne7ef710dac4e
                         { "X-RapidAPI-Host", "open-weather13.p.rapidapi.com" },
                     },
             };
@@ -51,7 +51,7 @@ namespace MauiWeather.Services
                 RequestUri = new Uri($"https://open-weather13.p.rapidapi.com/city/latlon/{lat}/{lon}"),
                 Headers =
                     {
-                        { "X-RapidAPI-Key", "" },
+                        { "X-RapidAPI-Key", "d16089aecbmshc1fc9e2ac0fc8b8p1f8009jsn0432cdff9b0b" },
                         { "X-RapidAPI-Host", "open-weather13.p.rapidapi.com" },
                     },
             };
@@ -82,7 +82,7 @@ namespace MauiWeather.Services
                 RequestUri = new Uri($"https://open-weather13.p.rapidapi.com/city/fivedaysforcast/{lat}/{lon}"),
                 Headers =
                 {
-                        { "X-RapidAPI-Key", "" },
+                        { "X-RapidAPI-Key", "d16089aecbmshc1fc9e2ac0fc8b8p1f8009jsn0432cdff9b0b" },
                         { "X-RapidAPI-Host", "open-weather13.p.rapidapi.com" },
                     },
             };
