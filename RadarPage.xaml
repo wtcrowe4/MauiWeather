@@ -17,7 +17,18 @@
 
     <ContentPage.Content>
         <Grid Grid.RowDefinitions=".90*">
-            <WebView Grid.Row="0" Source="https://embed.windy.com" />
+            <WebView x:Name="RadarWebView" Grid.Row="0" />
+
+            <!--<WebView Grid.Row="0">
+                <WebView.Source>
+                    <HtmlWebViewSource Html="&lt;iframe width=&quot;460&quot; height=&quot;950&quot; src=&quot;https://embed.windy.com/embed2.html?lat=34.927&amp;lon=-82.319&amp;detailLat=34.927&amp;detailLon=-82.319&amp;width=500&amp;height=850&amp;zoom=5&amp;level=surface&amp;overlay=wind&amp;product=ecmwf&amp;menu=&amp;message=true&amp;marker=true&amp;calendar=12&amp;pressure=&amp;type=map&amp;location=coordinates&amp;detail=true&amp;metricWind=mph&amp;metricTemp=%C2%B0F&amp;radarRange=-1&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;" />
+                </WebView.Source>
+            </WebView>-->
+
+            <!--<iframe width="500" height="850" src="https://embed.windy.com/embed2.html?lat=34.927&lon=-82.319&detailLat=34.927&detailLon=-82.319&width=500&height=850&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=12&pressure=&type=map&location=coordinates&detail=true&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1" frameborder="0"></iframe>-->
+            <!--<WebView Grid.Row="0" Source="https://embed.windy.com" />-->
+            <!--<WebView Grid.Row="0" Source="https://www.windy.com/-Webcams/United-States/South-Carolina/Greenville/I-85-S-@-MM-47/webcams/1604840701?34.856,-82.375,14,m:eDjadRT" />-->
+            <!--<WebView Grid.Row="0" Source="https://embed.windy.com/embed2.html?lat=34.927&lon=-82.319&detailLat=34.927&detailLon=-82.319&width=500&height=850&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=12&pressure=&type=map&location=coordinates&detail=true&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1" />-->
             <ActivityIndicator
                 x:Name="ActivityIndicator"
                 IsRunning="{Binding IsBusy}"
