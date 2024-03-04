@@ -31,6 +31,7 @@
             <!--<WebView Grid.Row="0" Source="https://embed.windy.com/embed2.html?lat=34.927&lon=-82.319&detailLat=34.927&detailLon=-82.319&width=500&height=850&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=12&pressure=&type=map&location=coordinates&detail=true&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1" />-->
             <ActivityIndicator
                 x:Name="ActivityIndicator"
+                Grid.Row="0"
                 IsRunning="{Binding IsBusy}"
                 IsVisible="{Binding IsBusy}"
                 Color="White" />

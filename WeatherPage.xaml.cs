@@ -20,7 +20,7 @@ public partial class WeatherPage : ContentPage
         ClearData();
         
         //Getting current location
-		Location currentLocation = await GetCurrentLocation();
+		Location currentLocation = await WeatherCurrentLocation();
 		double lat = currentLocation.Latitude;
 		double lon = currentLocation.Longitude;
 
@@ -52,69 +52,22 @@ public partial class WeatherPage : ContentPage
 		PressureLabel.Text = current.main.pressure.ToString() + " hPa";
         IsBusy(false);
 	}
+
+
+    //Get location from services
+    public CancellationTokenSource _cancelTokenSource;
+    public bool _isCheckingLocation;
+    public async Task<Location> WeatherCurrentLocation()
+    {
+        LocationService locationService = new LocationService();
+        return await locationService.GetCurrentLocation();
+    }
 	
-    //Getting device location
-    private CancellationTokenSource _cancelTokenSource;
-    private bool _isCheckingLocation;
-
-    public async Task<Location> GetCurrentLocation()
-    {
-        try
-        {
-            _isCheckingLocation = true;
-
-            GeolocationRequest request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
-
-            _cancelTokenSource = new CancellationTokenSource();
-
-            Location location = await Geolocation.Default.GetLocationAsync(request, _cancelTokenSource.Token);
-
-            if (location != null)
-                Debug.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-
-            //CheckMock();
-
-
-            return location;
-		}
-        // Catch one of the following exceptions:
-        //   FeatureNotSupportedException
-        //   FeatureNotEnabledException
-        //   PermissionException
-        catch (Exception ex)
-        {
-            // Unable to get location
-			Debug.WriteLine($"Unable to get location: {ex.Message}");
-			return null;
-        }
-        finally
-        {
-            _isCheckingLocation = false;
-        }
-    }
-
-    public void CancelRequest()
-    {
-        if (_isCheckingLocation && _cancelTokenSource != null && _cancelTokenSource.IsCancellationRequested == false)
-            _cancelTokenSource.Cancel();
-    }
-    //Check if location is from mock provider
-    public async Task CheckMock()
-    {
-        GeolocationRequest request = new GeolocationRequest(GeolocationAccuracy.Medium);
-        Location location = await Geolocation.Default.GetLocationAsync(request);
-
-        if (location != null && location.IsFromMockProvider)
-        {
-            Debug.WriteLine("This location is from a mock provider.");
-        }
-    }
-
+   
     //My Weather button to reload data
     private void MyLocation_Tapped(object sender, EventArgs e)
     {
         NearForecastList.Clear();
-
         OnAppearing();
     }
 
@@ -144,18 +97,14 @@ public partial class WeatherPage : ContentPage
             HumidityLabel.Text = current.main.humidity.ToString() + " %";
             PressureLabel.Text = current.main.pressure.ToString() + " hPa";
             IsBusy(false);
-
         }
     }
 
     //Radar button to open radar page
     private async void RadarBtn_Clicked(object sender, EventArgs e)
     {
-        
         await Navigation.PushAsync(new RadarPage());
         Application.Current.MainPage = new RadarPage();
-
-
     }   
 
     //Activity indicator
@@ -168,7 +117,6 @@ public partial class WeatherPage : ContentPage
             WindImage.IsVisible = false;
             HumidityImage.IsVisible = false;
             PressureImage.IsVisible = false;
-            
         }
         else
         {
@@ -177,8 +125,6 @@ public partial class WeatherPage : ContentPage
             WindImage.IsVisible = true;
             HumidityImage.IsVisible = true;
             PressureImage.IsVisible = true;
-
-            
         }
     }
 
